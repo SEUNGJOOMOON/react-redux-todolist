@@ -1,10 +1,5 @@
-const INCREASE = {
-    type: 'Increase'
+export const ADD_TODO = 'ADD_TODO';
+
+export function addTodo(text) {
+  return { type: ADD_TODO, text }
 };
-  
-const DECREASE = {
-    type: 'Decrease'
-};
-  
-export const increase = () => INCREASE;
-export const decrease = () => DECREASE;
