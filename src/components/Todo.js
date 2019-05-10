@@ -16,6 +16,14 @@ const ToDoComplete = styled.li`
   color: red;
 `;
 
+const ToDoKeep = styled.li`
+  width:200px;
+  height:25px;
+  text-align:left;
+  margin-left: -35px;
+  color: blue;
+`;
+
 class Todo extends Component {
   constructor(props) {
     super(props);
@@ -41,21 +49,32 @@ class Todo extends Component {
 
   render() {
     const todoState = this.props.todo.state;
-      if (todoState !== 'complete') {
-        return (
-          <ToDo>
-            {this.props.todo.text}
-            <button id={this.props.todo.id} onClick={this._onDelete} >delete</button>
-            <button id={this.props.todo.id} onClick={this._onChangeState} state='complete' >complete</button>
-          </ToDo>
-        );
-      }else{
+      if (todoState === 'complete') {
         return (
           <ToDoComplete>
             {this.props.todo.text}
             <button id={this.props.todo.id} onClick={this._onDelete} >delete</button>
             <button id={this.props.todo.id} onClick={this._onChangeState} state='uncomplete' >cancel</button>
+            <button id={this.props.todo.id} onClick={this._onChangeState} state='keep' >keep</button>
           </ToDoComplete>
+        );
+      }else if(todoState === 'keep'){
+        return (
+          <ToDoKeep>
+            {this.props.todo.text}
+            <button id={this.props.todo.id} onClick={this._onDelete} >delete</button>
+            <button id={this.props.todo.id} onClick={this._onChangeState} state='complete' >complete</button>
+            <button id={this.props.todo.id} onClick={this._onChangeState} state='uncomplete' >cancel</button>
+          </ToDoKeep>
+        );
+      }else{
+        return (
+          <ToDo>
+            {this.props.todo.text}
+            <button id={this.props.todo.id} onClick={this._onDelete} >delete</button>
+            <button id={this.props.todo.id} onClick={this._onChangeState} state='complete' >complete</button>
+            <button id={this.props.todo.id} onClick={this._onChangeState} state='keep' >keep</button>
+          </ToDo>
         );
       }
   }
