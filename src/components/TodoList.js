@@ -9,12 +9,15 @@ class TodoList extends Component {
 
   render() {
     const { todos } = this.props;
-    const todoEls = todos.map((todo, index) => (
-      <Todo key={index} {...todo} />
-    ));
+    let todosItem = [];
+
+    for(let i = 0;i<todos.length;i++){
+      todos[i].id = i;
+      todosItem.push(<Todo key={i} todo={todos[i]} deleteTodo={this.props.deleteTodo} />);
+    }
 
     return (
-      <ul>{todoEls}</ul>
+      <ul>{todosItem}</ul>
     );
   }
 }

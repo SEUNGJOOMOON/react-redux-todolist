@@ -1,10 +1,10 @@
 export const ADD_TODO = 'ADD_TODO';
-export const REMOVE_TODO = 'REMOVE_TODO';
+export const DELETE_TODO = 'DELETE_TODO';
 
 export function addTodo(text) {
   return { type: ADD_TODO, text }
 };
 
-export function removeTodo(index) {
-  return { type: REMOVE_TODO, index }
+export function deleteTodo(index) {
+  return { type: DELETE_TODO, id: index }
 };

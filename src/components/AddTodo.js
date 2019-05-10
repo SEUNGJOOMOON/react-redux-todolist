@@ -11,7 +11,12 @@ class AddTodo extends Component {
   }
 
   onClick(e) {
+
     e.preventDefault();
+    if(!this.inputTodo.value){
+      alert('please input value');
+      return;
+    }
     const { addTodo } = this.props;
     addTodo(this.inputTodo.value);
     this.inputTodo.value = ''; 
