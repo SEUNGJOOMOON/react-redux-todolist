@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import styled from 'styled-components';
 
 import rootReducer from './reducers';
-import { addTodo, deleteTodo } from "./actions";
+import { addTodo, deleteTodo, changeSateTodo } from "./actions";
 import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
 
@@ -20,7 +20,7 @@ const store = createStore(rootReducer);
 const render = () => ReactDOM.render(
   <Wrapper>
     <AddTodo addTodo={(text) => { store.dispatch(addTodo(text)) }}/>
-    <TodoList todos={store.getState()} deleteTodo={(id) => { store.dispatch(deleteTodo(id))}}/>
+    <TodoList todos={store.getState()} deleteTodo={(id) => { store.dispatch(deleteTodo(id))}} changeStateTodo={(state, index) => {store.dispatch(changeSateTodo(state, index))}}/>
   </Wrapper>
   ,
   document.querySelector('#root')

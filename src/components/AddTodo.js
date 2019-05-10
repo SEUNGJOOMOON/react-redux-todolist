@@ -1,4 +1,10 @@
 import React, {Component} from 'react'
+import styled from 'styled-components';
+
+const AddBtn = styled.button`
+    
+  `;
+
 
 class AddTodo extends Component {
   constructor(props) {
@@ -22,11 +28,13 @@ class AddTodo extends Component {
     this.inputTodo.value = ''; 
   }
 
+  
+
   render() {
     return (
       <form id='addTodo'>
         <input id='inputTodo' placeholder='Enter todo'/>
-        <button type='submit' onClick={this.onClick}>ADD</button>
+        <AddBtn type='submit' onClick={this.onClick}>ADD</AddBtn>
       </form>
     );
   }
