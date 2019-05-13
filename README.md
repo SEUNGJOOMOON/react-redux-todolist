@@ -1,5 +1,6 @@
 This project is example(To-do-list) for practicing React.js with Redux.js
 
+
 ![스크린샷 2019-05-13 오전 10 56 17](https://user-images.githubusercontent.com/42509800/57591738-d364e280-756d-11e9-9c44-9918b9f7a5d2.png)
 
 ## Available Scripts
