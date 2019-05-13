@@ -2,8 +2,21 @@ import React, {Component} from 'react'
 import styled from 'styled-components';
 
 const AddBtn = styled.button`
-    
+    float:right;
   `;
+
+  const InputTodo = styled.input`
+    width: 450px;
+    float:left;
+  `;
+
+  const InputTodoDiv = styled.div`
+    width: 500px;
+    height: 25px;
+    float:left;
+  `;
+
+
 
 
 class AddTodo extends Component {
@@ -33,8 +46,10 @@ class AddTodo extends Component {
   render() {
     return (
       <form id='addTodo'>
-        <input id='inputTodo' placeholder='Enter todo'/>
-        <AddBtn type='submit' onClick={this.onClick}>ADD</AddBtn>
+        <InputTodoDiv>
+          <InputTodo id='inputTodo' placeholder='Enter todo'/>
+          <AddBtn type='submit' onClick={this.onClick}>ADD</AddBtn>
+        </InputTodoDiv>
       </form>
     );
   }

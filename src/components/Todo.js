@@ -2,14 +2,14 @@ import React, {Component} from 'react'
 import styled from 'styled-components';
 
 const ToDo = styled.li`
-  width:200px;
+  width:500px;
   height:25px;
   text-align:left;
   margin-left: -35px;
 `;
 
 const ToDoComplete = styled.li`
-  width:200px;
+  width:500px;
   height:25px;
   text-align:left;
   margin-left: -35px;
@@ -17,11 +17,24 @@ const ToDoComplete = styled.li`
 `;
 
 const ToDoKeep = styled.li`
-  width:200px;
+  width:500px;
   height:25px;
   text-align:left;
   margin-left: -35px;
   color: blue;
+`;
+
+const TodoValue = styled.div`
+  width: 300px;
+  height:100%;
+  float:left;
+`;
+
+const TodoButton = styled.div`
+  width: 180px;
+  height: 100%;
+  text-align:right;
+  float:right;
 `;
 
 class Todo extends Component {
@@ -52,28 +65,34 @@ class Todo extends Component {
       if (todoState === 'complete') {
         return (
           <ToDoComplete>
-            {this.props.todo.text}
-            <button id={this.props.todo.id} onClick={this._onDelete} >delete</button>
-            <button id={this.props.todo.id} onClick={this._onChangeState} state='uncomplete' >cancel</button>
-            <button id={this.props.todo.id} onClick={this._onChangeState} state='keep' >keep</button>
+            <TodoValue>{this.props.todo.text}</TodoValue>
+            <TodoButton>
+              <button id={this.props.todo.id} onClick={this._onDelete} >delete</button>
+              <button id={this.props.todo.id} onClick={this._onChangeState} state='uncomplete' >cancel</button>
+              <button id={this.props.todo.id} onClick={this._onChangeState} state='keep' >keep</button>
+            </TodoButton>
           </ToDoComplete>
         );
       }else if(todoState === 'keep'){
         return (
           <ToDoKeep>
-            {this.props.todo.text}
-            <button id={this.props.todo.id} onClick={this._onDelete} >delete</button>
-            <button id={this.props.todo.id} onClick={this._onChangeState} state='complete' >complete</button>
-            <button id={this.props.todo.id} onClick={this._onChangeState} state='uncomplete' >cancel</button>
+            <TodoValue>{this.props.todo.text}</TodoValue>
+            <TodoButton>
+              <button id={this.props.todo.id} onClick={this._onDelete} >delete</button>
+              <button id={this.props.todo.id} onClick={this._onChangeState} state='complete' >complete</button>
+              <button id={this.props.todo.id} onClick={this._onChangeState} state='uncomplete' >cancel</button>
+            </TodoButton>
           </ToDoKeep>
         );
       }else{
         return (
           <ToDo>
-            {this.props.todo.text}
-            <button id={this.props.todo.id} onClick={this._onDelete} >delete</button>
-            <button id={this.props.todo.id} onClick={this._onChangeState} state='complete' >complete</button>
-            <button id={this.props.todo.id} onClick={this._onChangeState} state='keep' >keep</button>
+            <TodoValue>{this.props.todo.text}</TodoValue>
+            <TodoButton>
+              <button id={this.props.todo.id} onClick={this._onDelete} >delete</button>
+              <button id={this.props.todo.id} onClick={this._onChangeState} state='complete' >complete</button>
+              <button id={this.props.todo.id} onClick={this._onChangeState} state='keep' >keep</button>
+            </TodoButton>
           </ToDo>
         );
       }
